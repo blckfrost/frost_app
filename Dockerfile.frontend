@@ -1,0 +1,11 @@
+FROM node:18
+
+WORKDIR /app
+COPY frontend/ .
+
+RUN npm install && npm run build
+
+# Serve built React app using a simple static server
+RUN npm install -g serve
+
+CMD ["serve", "-s", "dist", "-l", "3000"]
