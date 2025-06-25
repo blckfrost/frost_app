@@ -1,6 +1,6 @@
 services:
   backend:
-    image: frost_app-backend:1.0
+    image: frost824/frost_be:latest
     container_name: frost_app_be
     build:
       context: ./backend/
@@ -15,7 +15,7 @@ services:
       - db
   frontend:
     container_name: frost_app_fe
-    image: frost_app-frontend:1.0
+    image: frost824/frost_fe:latest
     build:
       context: ./frontend/
       dockerfile: Dockerfile.frontend
