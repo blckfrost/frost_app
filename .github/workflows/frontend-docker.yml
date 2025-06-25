@@ -5,6 +5,8 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/frontend-docker.yml'
+    tags:
+      - 'v*'
   pull_request:
     branches: ["main"]
     paths:
@@ -28,10 +30,8 @@ jobs:
         with:
           images: ${{ secrets.DOCKER_HUB_USERNAME }}/frost_fe
           tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=sha,prefix={{branch}}-
             type=raw,value=latest,enable={{is_default_branch}}
+            type=sha,prefix=commit-
       - name: Build and push Frontend Docker image
         uses: docker/build-push-action@v5
         with:
