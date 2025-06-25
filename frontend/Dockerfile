@@ -1,7 +1,7 @@
 FROM node:18 AS builder
 
 WORKDIR /app
-COPY ../frontend/ .
+COPY . .
 
 RUN npm install && npm run build
 
