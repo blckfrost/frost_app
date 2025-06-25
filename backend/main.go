@@ -10,6 +10,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
+// Test api
 func main() {
 	connStr := fmt.Sprintf("postgres://%s:%s@db:5432/%s?sslmode=disable",
 		os.Getenv("POSTGRES_USER"), os.Getenv("POSTGRES_PASSWORD"), os.Getenv("POSTGRES_DB"))
