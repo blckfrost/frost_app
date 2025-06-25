@@ -31,7 +31,7 @@ jobs:
           images: ${{ secrets.DOCKER_HUB_USERNAME }}/frost_fe
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
-            type=sha,prefix=commit-
+            type=ref,event=tag
       - name: Build and push Frontend Docker image
         uses: docker/build-push-action@v5
         with:
