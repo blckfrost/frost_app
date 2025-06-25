@@ -23,7 +23,9 @@ export default function App() {
 
     return (
         <div>
-            <h1>{message || 'Loading...'}</h1>
+            <h1>DOCKER TEST APP</h1>
+            <h2>{message || 'Loading...'}</h2>
+            <p>I love docker</p>
         </div>
     );
 }

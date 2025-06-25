@@ -1,8 +1,10 @@
 services:
   backend:
+    image: frost_app-backend:1.0
+    container_name: frost_app_be
     build:
-      context: .
-      dockerfile: Dockerfile.backend
+      context: ./backend/
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
@@ -11,24 +13,24 @@ services:
       POSTGRES_DB: appdb
     depends_on:
       - db
-
   frontend:
+    container_name: frost_app_fe
+    image: frost_app-frontend:1.0
     build:
-      context: .
+      context: ./frontend/
       dockerfile: Dockerfile.frontend
     ports:
       - "3000:3000"
     depends_on:
       - backend
-
   db:
     image: postgres:15
+    container_name: frost_app_db
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: appdb
     volumes:
       - pgdata:/var/lib/postgresql/data
-
 volumes:
   pgdata:
